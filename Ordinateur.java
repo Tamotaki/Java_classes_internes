@@ -83,5 +83,35 @@ public final class Ordinateur {
             this.prixEuros = prixEuros;
             return this;
         }
+
+        public Ordinateur build() {
+
+            //validation + return new Ordinateur(this)
+            if (ramGo < 4) {
+                throw new IllegalArgumentException("RAM Minimum 4Go");
+            }
+            return new Ordinateur(this);
+        }
+        public static void main(String[] args) {
+            //Créer 3 ordinateurs via le Builder
+            Ordinateur ordi1 = new Ordinateur.Builder("Apple", "M3", 16).build();
+
+            Ordinateur ordi2 = new Ordinateur.Builder("Dell", "I7", 8)
+                    .stockageGo(512)
+                    .ssd(true)
+                    .carteGraphique("RTX5070")
+                    .prixEuros(1200.0)
+                    .build();
+
+            Ordinateur ordi3 = new Ordinateur.Builder("HP", "Ryzen5", 32)
+                    .stockageGo(1024)
+                    .ssd(false)
+                    .carteGraphique("GTX1070")
+                    .prixEuros(900.0)
+                    .build();
+            System.out.println(ordi1);
+            System.out.println(ordi2);
+            System.out.println(ordi3);
     }
 }
+
