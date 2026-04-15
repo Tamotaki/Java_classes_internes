@@ -49,6 +49,39 @@ public final class Ordinateur {
     }
 
     //Classe imbriquée statique
+    public static class Builder {
 
+        //Champs du builder
+        private String marque;
+        private String processeur;
+        private int ramGo;
+        private int stockageGo = 256;
+        private boolean ssd = true;
+        private String carteGraphique = "Integree";
+        private double prixEuros = 0.0;
 
+        public Builder(String marque, String processeur, int ram) {
+            this.marque = marque;
+            this.processeur = processeur;
+            this.ramGo = ramGo;
+        }
+
+        //Méthodes de configuration : retourner this
+        public Builder stockageGo(int stockageGo) {
+            this.stockageGo = stockageGo;
+            return this;
+        }
+        public Builder ssd(boolean ssd) {
+            this.ssd = ssd;
+            return this;
+        }
+        public Builder carteGraphique(String carteGraphique) {
+            this.carteGraphique = carteGraphique;
+            return this;
+        }
+        public Builder prixEuros(double prixEuros) {
+            this.prixEuros = prixEuros;
+            return this;
+        }
+    }
 }
