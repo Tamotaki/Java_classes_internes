@@ -43,5 +43,12 @@ public final class Ordinateur {
         return prixEuros;
     }
 
-    
+    @Override
+    public String toString() {
+        return marque + processeur + ramGo + stockageGo + ssd + carteGraphique + prixEuros;
+    }
+
+    //Classe imbriquée statique
+
+
 }
