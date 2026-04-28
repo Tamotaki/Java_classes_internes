@@ -48,7 +48,7 @@ public class SystemeEvenements {
         Bouton btn = new Bouton("Valider");
         final int[] compteur = {0};
 
-        // ClickListener 1 : affiche les coordonnées
+        //ClickListener 1 : affiche les coordonnées
         btn.addClickListener(new ClickListener() {
             @Override
             public void onClick(int x, int y) {
@@ -56,7 +56,7 @@ public class SystemeEvenements {
             }
         });
 
-        // ClickListener 2 : incrémente un compteur
+        //ClickListener 2 : incrémente un compteur
         btn.addClickListener(new ClickListener() {
             @Override
             public void onClick(int x, int y) {
@@ -65,7 +65,7 @@ public class SystemeEvenements {
             }
         });
 
-        // KeyListener : distingue voyelles et consonnes
+        //KeyListener : distingue voyelles et consonnes
         btn.addKeyListener(new KeyListener() {
             @Override
             public void onKeyPress(char touche) {
@@ -78,7 +78,7 @@ public class SystemeEvenements {
             }
         });
 
-        // HoverListener : info-bulle fictive
+        //HoverListener : info-bulle fictive
         btn.addHoverListener(new HoverListener() {
             @Override
             public void onHover(boolean entre) {
@@ -87,7 +87,7 @@ public class SystemeEvenements {
             }
         });
 
-        // Simulation des interactions
+        //Simulation des interactions
         btn.simulerSurvol(true);
         btn.simulerClic(100, 200);
         btn.simulerClic(150, 250);
@@ -96,7 +96,7 @@ public class SystemeEvenements {
         btn.simulerSurvol(false);
     }
 
-    // Version lambda de la méthode main (Partie B)
+    //Version lambda de la méthode main (Partie B)
     public static void mainLambda(String[] args) {
         Bouton btn = new Bouton("Valider");
         final int[] compteur = {0};
@@ -118,21 +118,32 @@ public class SystemeEvenements {
         btn.simulerTouche('k');
         btn.simulerSurvol(false);
     }
-// Cas 1 : Interface non fonctionnelle (plusieurs méthodes abstraites)
-// Un lambda ne peut implémenter qu'une seule méthode. Si l'interface en a plusieurs, une classe anonyme est obligatoire
+//Cas 1 : Interface non fonctionnelle (plusieurs méthodes abstraites)
+//Un lambda ne peut implémenter qu'une seule méthode. Si l'interface en a plusieurs, une classe anonyme est obligatoire
     Comparator<String> comp = new Comparator<String>() {
         @Override
         public int compare(String a, String b) { return a.compareTo(b); }
         // Si on avait besoin d'override equals() aussi, seule la classe anonyme le permet.
     }
-// Cas 2 : Besoin d'un état interne ou de plusieurs champs
-// Un lambda est stateless. Si on a besoin de conserver un état entre deux appels, la classe anonyme est nécessaire
+//Cas 2 : Besoin d'un état interne ou de plusieurs champs
+//Un lambda est stateless. Si on a besoin de conserver un état entre deux appels, la classe anonyme est nécessaire
     ClickListener compteurListener = new ClickListener() {
-        private int count = 0; // état interne impossible dans un lambda
+        private int count = 0;
         @Override
         public void onClick(int x, int y) {
             count++;
             System.out.println("Clic n°" + count);
         }
-    };
+    }
+//Dans Bouton, la méthode removeListener est déjà implémentée ci-dessus.
+//Problème avec les lambdas
+    ClickListener monListener = (x, y) -> System.out.println("Clic !");
+btn.addClickListener(monListener);
+btn.removeClickListener(monListener);
+
+//Mais si on fait directement :
+btn.addClickListener((x, y) -> System.out.println("Clic !"));
+btn.removeClickListener((x, y) -> System.out.println("Clic !")); // NE FONCTIONNE PAS
+//Chaque expression lambda crée une nouvelle instance, donc remove() ne trouve pas la même référence.
+//Solution : stocker le lambda dans une variable avant de l'ajouter, et utiliser cette variable pour le retirer.
 }
