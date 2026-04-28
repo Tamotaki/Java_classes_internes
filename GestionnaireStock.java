@@ -78,4 +78,13 @@ public class GestionnaireStock {
         gs.filtrerEtTrier("Cat2", 200.0, 2)
                 .forEach(System.out::println);
     }
+    //Question 4: Version lambda + Stream :
+    public List<Produit> filtrerEtTrierStream(String categorie, double prixMax, int quantiteMin) {
+        return stock.stream()
+                .filter(p -> p.getCategorie().equalsIgnoreCase(categorie)
+                        && p.getPrix() <= prixMax
+                        && p.getQuantite() >= quantiteMin)
+                .sorted(Comparator.comparingDouble(Produit::getPrix))
+                .collect(Collectors.toList());
+    }
 }
