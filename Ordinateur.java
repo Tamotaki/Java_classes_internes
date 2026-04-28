@@ -115,3 +115,11 @@ public final class Ordinateur {
     }
 }
 
+//Exemple de telescoping constructor (anti-pattern)
+public Ordinateur(String marque, String processeur, int ram) { ... }
+    public Ordinateur(String marque, String processeur, int ram, int stockage) { ... }
+    public Ordinateur(String marque, String processeur, int ram, int stockage, boolean ssd) { ... }
+    public Ordinateur(String marque, String processeur, int ram, int stockage, boolean ssd, String gpu) { ... }
+    public Ordinateur(String marque, String processeur, int ram, int stockage, boolean ssd, String gpu, double prix) { ... }
+// On ne sait plus quel paramètre correspond à quoi à l'appel :
+new Ordinateur("Dell", "i7", 16, 512, true, "RTX", 1200.0); 

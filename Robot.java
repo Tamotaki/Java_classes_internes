@@ -42,6 +42,8 @@ public class Robot {
                 System.out.println("Robot allumé et énergie >20");
                 energie -= 10;
             }
+            else {
+                System.out.println("Impossible : robot éteint ou énergie insuffisante.");
         }
         public void deposer (String objet){
             if (allume) {

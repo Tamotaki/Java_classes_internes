@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="81757933-af24-467c-9a57-d0ea4a8aa75f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../../../Prog avancée/Classes internes/Java_classes_internes/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Prog avancée/Classes internes/Java_classes_internes/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Prog avancée/Classes internes/Java_classes_internes/Ordinateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Prog avancée/Classes internes/Java_classes_internes/Ordinateur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Prog avancée/Classes internes/Java_classes_internes/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Prog avancée/Classes internes/Java_classes_internes/Robot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,9 +17,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../Prog avancée/Classes internes/Java_classes_internes" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="3CIzR0LsBvuFvkhl1wukGmcTlDe" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -29,7 +31,6 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -56,6 +57,7 @@
       <option name="presentableId" value="Default" />
       <updated>1776087860571</updated>
       <workItem from="1776087862654" duration="9272000" />
+      <workItem from="1777374879027" duration="1250000" />
     </task>
     <servers />
   </component>
