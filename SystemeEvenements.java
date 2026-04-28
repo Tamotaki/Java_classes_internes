@@ -118,4 +118,21 @@ public class SystemeEvenements {
         btn.simulerTouche('k');
         btn.simulerSurvol(false);
     }
+// Cas 1 : Interface non fonctionnelle (plusieurs méthodes abstraites)
+// Un lambda ne peut implémenter qu'une seule méthode. Si l'interface en a plusieurs, une classe anonyme est obligatoire
+    Comparator<String> comp = new Comparator<String>() {
+        @Override
+        public int compare(String a, String b) { return a.compareTo(b); }
+        // Si on avait besoin d'override equals() aussi, seule la classe anonyme le permet.
+    }
+// Cas 2 : Besoin d'un état interne ou de plusieurs champs
+// Un lambda est stateless. Si on a besoin de conserver un état entre deux appels, la classe anonyme est nécessaire
+    ClickListener compteurListener = new ClickListener() {
+        private int count = 0; // état interne impossible dans un lambda
+        @Override
+        public void onClick(int x, int y) {
+            count++;
+            System.out.println("Clic n°" + count);
+        }
+    };
 }
